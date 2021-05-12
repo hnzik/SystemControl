@@ -177,6 +177,21 @@
     <Compile Include="ComputerPerformace\ComputerPerformaceGui.Designer.cs">
       <DependentUpon>ComputerPerformaceGui.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisCPU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisCPU.Designer.cs">
+      <DependentUpon>AnalysisCPU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\PerformaceSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\PerformaceSelect.Designer.cs">
+      <DependentUpon>PerformaceSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiskControl\DiskControlInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -317,6 +332,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComputerPerformace\ComputerPerformaceGui.resx">
       <DependentUpon>ComputerPerformaceGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerPerformace\Performance\Analysis\AnalysisCPU.resx">
+      <DependentUpon>AnalysisCPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerPerformace\Performance\PerformaceSelect.resx">
+      <DependentUpon>PerformaceSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DiskControl\DiskControlInfo.resx">
       <DependentUpon>DiskControlInfo.cs</DependentUpon>
