@@ -126,3 +126,6 @@ C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\System
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.csproj.CopyComplete
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.exe
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.pdb
+C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.Analysis.AnalysisCPU.resources
+C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.PerformaceSelect.resources
+C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources

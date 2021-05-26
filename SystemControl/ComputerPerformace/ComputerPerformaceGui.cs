@@ -126,5 +126,26 @@ namespace SystemControl.ComputerPerformace
             System.Windows.Forms.Application.Exit();
 
         }
+
+        private void ComputerPerformaceGui_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Performance.PerformaceSelect select = new Performance.PerformaceSelect(this);
+            select.StartPosition = FormStartPosition.Manual;
+            select.Location = this.Location;
+            select.Show();
+            //Není to nejlepší způsob ale už jsem neměl moc času
+            Button closeButton = (Button)select.Controls[0].Controls[0];
+            closeButton.Click += (s, args) =>
+            {
+                this.Show();
+                select.Dispose();
+            };
+        }
     }
 }

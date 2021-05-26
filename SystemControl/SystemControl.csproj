@@ -127,6 +127,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -183,15 +184,24 @@
     <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisCPU.Designer.cs">
       <DependentUpon>AnalysisCPU.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisHandeler.cs" />
     <Compile Include="ComputerPerformace\Performance\Analysis\AnalysisMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ComputerPerformace\Performance\ProcessManager\CpuUsage.cs" />
     <Compile Include="ComputerPerformace\Performance\PerformaceSelect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ComputerPerformace\Performance\PerformaceSelect.Designer.cs">
       <DependentUpon>PerformaceSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.Designer.cs">
+      <DependentUpon>ProcessManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManagerHandeler.cs" />
     <Compile Include="DiskControl\DiskControlInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -338,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComputerPerformace\Performance\PerformaceSelect.resx">
       <DependentUpon>PerformaceSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.resx">
+      <DependentUpon>ProcessManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DiskControl\DiskControlInfo.resx">
       <DependentUpon>DiskControlInfo.cs</DependentUpon>

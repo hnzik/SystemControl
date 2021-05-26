@@ -52,6 +52,7 @@ namespace SystemControl.ComputerPerformace
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 449);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseEnter += new System.EventHandler(this.OnPanelMouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.OnPanelMouseLeave);
@@ -131,6 +132,7 @@ namespace SystemControl.ComputerPerformace
             this.Text = "SystemExplorer - Computer Performance";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ComputerPerformaceGui_FormClosing);
             this.Load += new System.EventHandler(this.ComputerPerformaceGui_Load);
+            this.Click += new System.EventHandler(this.ComputerPerformaceGui_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

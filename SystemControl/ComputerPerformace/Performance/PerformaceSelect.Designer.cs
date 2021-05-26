@@ -51,6 +51,10 @@ namespace SystemControl.ComputerPerformace.Performance
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 449);
             this.panel1.TabIndex = 2;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // button1
             // 
@@ -61,6 +65,7 @@ namespace SystemControl.ComputerPerformace.Performance
             this.button1.Size = new System.Drawing.Size(44, 35);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // metroLabel1
             // 
@@ -95,6 +100,10 @@ namespace SystemControl.ComputerPerformace.Performance
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(405, 449);
             this.panel3.TabIndex = 3;
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.panel3.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // metroLabel2
             // 
@@ -121,6 +130,7 @@ namespace SystemControl.ComputerPerformace.Performance
             this.Controls.Add(this.panel3);
             this.Name = "PerformaceSelect";
             this.Text = "SystemExplorer - Performance";
+            this.Load += new System.EventHandler(this.PerformaceSelect_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

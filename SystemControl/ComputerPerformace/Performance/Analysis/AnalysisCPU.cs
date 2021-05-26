@@ -16,5 +16,20 @@ namespace SystemControl.ComputerPerformace.Performance.Analysis
         {
             InitializeComponent();
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AnalysisCPU_Load(object sender, EventArgs e)
+        {
+            this.chart1.Series[0]["PieLabelStyle"] = "Disabled";
+        }
+
+        private void metroLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
