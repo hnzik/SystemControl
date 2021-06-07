@@ -32,7 +32,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
            
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-           
+          
             this.SuspendLayout();
             // 
             // label1
@@ -57,8 +57,6 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
-            this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ProcessManager
             // 

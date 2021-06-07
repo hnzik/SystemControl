@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,13 +111,6 @@ namespace SystemControl.ComputerPerformace
         {
             this.Hide();
             ComputerPerformace.Cleaning.ComputerCleaningGui computerCleaningGui = new ComputerPerformace.Cleaning.ComputerCleaningGui();
-            computerCleaningGui.Show(this);
-            Button closeButton = (Button)computerCleaningGui.Controls[2].Controls[0];
-            closeButton.Click += (s, args) =>
-            {
-                this.Show();
-                computerCleaningGui.Dispose();
-            };
         }
 
 
@@ -134,18 +128,13 @@ namespace SystemControl.ComputerPerformace
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Performance.PerformaceSelect select = new Performance.PerformaceSelect(this);
-            select.StartPosition = FormStartPosition.Manual;
-            select.Location = this.Location;
-            select.Show();
-            //Není to nejlepší způsob ale už jsem neměl moc času
-            Button closeButton = (Button)select.Controls[0].Controls[0];
-            closeButton.Click += (s, args) =>
+            Thread t = new Thread(() =>
             {
-                this.Show();
-                select.Dispose();
-            };
+                Performance.ProcessManager.ProcessManager select = new Performance.ProcessManager.ProcessManager();
+                select.ShowDialog();
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
         }
     }
 }

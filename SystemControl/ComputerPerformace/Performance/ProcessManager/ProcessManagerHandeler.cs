@@ -42,19 +42,13 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 
         private string cpuProcessUsageTime(Process p)
         {
-            CpuUsage cpuUsage1 = new CpuUsage();
-            short usage = 0;
+            int usage = 0;
             try
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    short internalUsage = cpuUsage1.GetUsage(Process.GetProcessById(p.Id));
-                    if (internalUsage != -1)
-                    {
-                        usage = internalUsage;
-                        break;
-                    }
-                }
+                var counter = new PerformanceCounter("Process", "% Processor Time", p.ProcessName);
+                counter.NextValue();
+                Thread.Sleep(10);
+                usage = (int)(counter.NextValue()/Environment.ProcessorCount);
             }
             catch (Exception e)
             {
@@ -99,7 +93,9 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
         {
             Process[] processCollection = Process.GetProcesses();
             List<ProcessItem> processItems = new List<ProcessItem>();
-            foreach (Process p in processCollection) { 
+            foreach (Process p in processCollection) {
+                if (p.Id == 0)
+                    continue;
                 ProcessItem processItem = new ProcessItem();
                 processItem.PID = p.Id.ToString();
                 processItem.processName = p.ProcessName;

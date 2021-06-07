@@ -15,57 +15,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 {
-    class ListViewItemComparer : IComparer
-    {
-        private int col;
-        public ListViewItemComparer()
-        {
-            col = 0;
-        }
-        public ListViewItemComparer(int column)
-        {
-            col = column;
-        }
-        public int Compare(object x, object y)
-        {
-            switch (col)
-            {
-                case 0:
-                    return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
-                case 1:
-                    if (Int32.Parse(((ListViewItem)x).SubItems[col].Text) > Int32.Parse(((ListViewItem)y).SubItems[col].Text))
-                        return 1;
-                    return 0;
-                case 2:
-                    if (((ListViewItem)x).SubItems[col].Text.Length <= 1 || ((ListViewItem)x).SubItems[col].Text.IndexOf("%") <=0)
-                        return 1;
-                    if (((ListViewItem)y).SubItems[col].Text.Length <= 1 || ((ListViewItem)y).SubItems[col].Text.IndexOf("%") <= 0)
-                        return 0;
-                    if (Int32.Parse(((ListViewItem)x).SubItems[col].Text.Substring(0, ((ListViewItem)x).SubItems[col].Text.IndexOf("%"))) < Int32.Parse(((ListViewItem)y).SubItems[col].Text.Substring(0, ((ListViewItem)y).SubItems[col].Text.IndexOf("%"))))
-                        return 1;
-                    return 0; 
-                case 3:
-                    ListViewItem itemY = (ListViewItem)y;
-                    ListViewItem itemX = (ListViewItem)x;
-                    if (itemY.Tag == null)
-                        return 0;
-                    if (itemX.Tag == null)
-                        return 1;
-                    ProcessItem processY = (ProcessItem)itemY.Tag;
-                    ProcessItem processX = (ProcessItem)itemX.Tag;
-                    if (processX.ramUsage < processY.ramUsage)
-                        return 1;
-                    return 0;
-
-
-            }
-            if (Int32.Parse(((ListViewItem)x).SubItems[col].Text) > Int32.Parse(((ListViewItem)y).SubItems[col].Text))
-                return 1;
-            return 0;
-               
-        }
-    }
-
     public partial class ProcessManager : Form
     {
         private IComparer comparer = null;
@@ -75,7 +24,6 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 
         public ProcessManager()
         {
-            handeler = new ProcessManagerHandeler();
             InitializeComponent();
         }
 
@@ -189,7 +137,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
                             this.listView1.ListViewItemSorter = comparer;
                         }
                     });                   
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
             });
             updateThread.Start();
@@ -210,6 +158,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 
         private void ProcessManager_Load(object sender, EventArgs e)
         {
+            handeler = new ProcessManagerHandeler();
             this.listView1.Sorting = SortOrder.None;
             this.fillListView();
             this.setupListView();
@@ -234,4 +183,55 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             this.listView1.ListViewItemSorter = comparer;
         }
     }
+    class ListViewItemComparer : IComparer
+    {
+        private int col;
+        public ListViewItemComparer()
+        {
+            col = 0;
+        }
+        public ListViewItemComparer(int column)
+        {
+            col = column;
+        }
+        public int Compare(object x, object y)
+        {
+            switch (col)
+            {
+                case 0:
+                    return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+                case 1:
+                    if (Int32.Parse(((ListViewItem)x).SubItems[col].Text) > Int32.Parse(((ListViewItem)y).SubItems[col].Text))
+                        return 1;
+                    return 0;
+                case 2:
+                    if (((ListViewItem)x).SubItems[col].Text.Length <= 1 || ((ListViewItem)x).SubItems[col].Text.IndexOf("%") <= 0)
+                        return 1;
+                    if (((ListViewItem)y).SubItems[col].Text.Length <= 1 || ((ListViewItem)y).SubItems[col].Text.IndexOf("%") <= 0)
+                        return 0;
+                    if (Int32.Parse(((ListViewItem)x).SubItems[col].Text.Substring(0, ((ListViewItem)x).SubItems[col].Text.IndexOf("%"))) < Int32.Parse(((ListViewItem)y).SubItems[col].Text.Substring(0, ((ListViewItem)y).SubItems[col].Text.IndexOf("%"))))
+                        return 1;
+                    return 0;
+                case 3:
+                    ListViewItem itemY = (ListViewItem)y;
+                    ListViewItem itemX = (ListViewItem)x;
+                    if (itemY.Tag == null)
+                        return 0;
+                    if (itemX.Tag == null)
+                        return 1;
+                    ProcessItem processY = (ProcessItem)itemY.Tag;
+                    ProcessItem processX = (ProcessItem)itemX.Tag;
+                    if (processX.ramUsage < processY.ramUsage)
+                        return 1;
+                    return 0;
+
+
+            }
+            if (Int32.Parse(((ListViewItem)x).SubItems[col].Text) > Int32.Parse(((ListViewItem)y).SubItems[col].Text))
+                return 1;
+            return 0;
+
+        }
+    }
+
 }

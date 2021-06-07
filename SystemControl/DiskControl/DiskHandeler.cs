@@ -50,7 +50,7 @@ namespace SystemControl.DiskControl
             return new HardDriveInfo();
         }
 
-        private Process startPowerShell(string args)
+        private Process startPowerShell(string args,bool redirect)
         {
             Process proc = new Process
             {
@@ -59,8 +59,8 @@ namespace SystemControl.DiskControl
                     FileName = "defrag",
                     Arguments = args,
                     UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    RedirectStandardInput = true,
+                    RedirectStandardOutput = redirect,
+                    RedirectStandardInput = redirect,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     CreateNoWindow = true
                 }
@@ -80,11 +80,10 @@ namespace SystemControl.DiskControl
 
         public bool startDiskDefrag(string disk) {
             new Task(() => {
-                startPowerShell(disk + " /M");
+                startPowerShell(disk + " /O /M",false);
             }).Start();
             System.Threading.Thread.Sleep(300);
-            this.defragProcess = startPowerShell(disk + " /T /V /U");
-
+            this.defragProcess = startPowerShell(disk + " /T /V /U", true);
             return this.hasDefragStarted;
         }
 
@@ -95,7 +94,6 @@ namespace SystemControl.DiskControl
 
             if (this.hasDefragStarted)
             {
-                this.defragProcess.StandardInput.WriteLine("d");
                 return this.defragProcess.StandardOutput.ReadLine();
             }
 

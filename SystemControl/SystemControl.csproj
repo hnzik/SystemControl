@@ -179,12 +179,6 @@
       <DependentUpon>ComputerPerformaceGui.cs</DependentUpon>
     </Compile>
     <Compile Include="ComputerPerformace\Performance\ProcessManager\CpuUsage.cs" />
-    <Compile Include="ComputerPerformace\Performance\PerformaceSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ComputerPerformace\Performance\PerformaceSelect.Designer.cs">
-      <DependentUpon>PerformaceSelect.cs</DependentUpon>
-    </Compile>
     <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.cs" />
     <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.Designer.cs">
       <DependentUpon>ProcessManager.cs</DependentUpon>
@@ -330,9 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComputerPerformace\ComputerPerformaceGui.resx">
       <DependentUpon>ComputerPerformaceGui.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ComputerPerformace\Performance\PerformaceSelect.resx">
-      <DependentUpon>PerformaceSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.resx">
       <DependentUpon>ProcessManager.cs</DependentUpon>

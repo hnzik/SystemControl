@@ -126,9 +126,6 @@ C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\System
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.csproj.CopyComplete
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.exe
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.pdb
-C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.Analysis.AnalysisCPU.resources
-C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.PerformaceSelect.resources
-C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.csprojAssemblyReference.cache
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Cleaning.ActiveCleaningGui.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Cleaning.ActiveCopy.resources
@@ -195,3 +192,4 @@ C:\xampp\htdocs\Lazne\SystemControl\SystemControl\bin\x64\Debug\System.Threading
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\bin\x64\Debug\Validation.xml
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.csproj.CopyComplete
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ListViewItemComparer.resources
+C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources
