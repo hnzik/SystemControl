@@ -29,6 +29,7 @@ namespace SystemControl.ComputerPerformace.Performance
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerformaceSelect));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -46,10 +47,10 @@ namespace SystemControl.ComputerPerformace.Performance
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 449);
+            this.panel1.Size = new System.Drawing.Size(609, 691);
             this.panel1.TabIndex = 2;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -62,7 +63,7 @@ namespace SystemControl.ComputerPerformace.Performance
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 35);
+            this.button1.Size = new System.Drawing.Size(66, 54);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -76,7 +77,8 @@ namespace SystemControl.ComputerPerformace.Performance
             this.metroLabel1.CustomBackground = true;
             this.metroLabel1.Enabled = false;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(119, 314);
+            this.metroLabel1.Location = new System.Drawing.Point(178, 483);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(162, 25);
             this.metroLabel1.TabIndex = 2;
@@ -84,21 +86,21 @@ namespace SystemControl.ComputerPerformace.Performance
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(404, 0);
+            this.panel2.Location = new System.Drawing.Point(606, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(407, 449);
+            this.panel2.Size = new System.Drawing.Size(610, 691);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
-            this.panel3.BackgroundImage = global::SystemControl.Properties.Resources.computer;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel3.Controls.Add(this.metroLabel2);
-            this.panel3.Location = new System.Drawing.Point(406, -1);
+            this.panel3.Location = new System.Drawing.Point(609, -2);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(405, 449);
+            this.panel3.Size = new System.Drawing.Size(608, 691);
             this.panel3.TabIndex = 3;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
@@ -114,22 +116,26 @@ namespace SystemControl.ComputerPerformace.Performance
             this.metroLabel2.CustomBackground = true;
             this.metroLabel2.Enabled = false;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(124, 314);
+            this.metroLabel2.Location = new System.Drawing.Point(224, 483);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(115, 25);
             this.metroLabel2.TabIndex = 3;
             this.metroLabel2.Text = "Task manager";
+            this.metroLabel2.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
             // PerformaceSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(810, 446);
+            this.ClientSize = new System.Drawing.Size(1215, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PerformaceSelect";
             this.Text = "SystemExplorer - Performance";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PerformaceSelect_FormClosing);
             this.Load += new System.EventHandler(this.PerformaceSelect_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

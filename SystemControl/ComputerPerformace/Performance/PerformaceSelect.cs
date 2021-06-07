@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -50,17 +51,7 @@ namespace SystemControl.ComputerPerformace.Performance
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Analysis.AnalysisMain analysisMain = new Analysis.AnalysisMain(1);
-            analysisMain.StartPosition = FormStartPosition.Manual;
-            analysisMain.Location = this.Location;
-            analysisMain.Show(this);
-            Panel closeButton = (Panel)analysisMain.Controls[0].Controls[0];
-            closeButton.Click += (s, args) =>
-            {
-                this.Show();
-                analysisMain.Dispose();
-            };
+           
         }
 
         private void PerformaceSelect_Load(object sender, EventArgs e)
@@ -136,6 +127,16 @@ namespace SystemControl.ComputerPerformace.Performance
             ProcessManager.ProcessManager processManager = new ProcessManager.ProcessManager();
             processManager.StartPosition = FormStartPosition.Manual;
             processManager.Show();
+        }
+
+        private void metroLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PerformaceSelect_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

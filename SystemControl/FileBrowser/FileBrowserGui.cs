@@ -126,8 +126,8 @@ namespace SystemControl.FileBrowser
                 imageList1.ColorDepth = ColorDepth.Depth32Bit;
                 imageList1.ImageSize = new Size(20, 20);
                 listView1.SmallImageList = imageList1;
-                imageList1.Images.Add(Image.FromFile("D://SystemControl//SystemControl//Resources//folder.png"));
-
+                string project = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                imageList1.Images.Add(Image.FromFile(project + "\\Resources\\folder.png"));
                 ListViewItem[] dirlistItemArray = dirWalker.findAllSubDirecotries();
 
                 if (dirlistItemArray != null)

@@ -28,8 +28,10 @@ namespace SystemControl.DiskControl
 
             t = new Thread(() =>
             {
+                if(diskHandeler.startDiskDefrag(diskName))
                 while (!killThread)
                 {
+
                     string nextLine = diskHandeler.getConsoleBuffer(ref killThread);
                     if (nextLine != "") {
                         listView1.Invoke((MethodInvoker)delegate ()
@@ -48,10 +50,7 @@ namespace SystemControl.DiskControl
 
             });
             t.Start();
-            if(diskHandeler.startDiskDefrag(diskName))
-                this.listView1.Items.Add("Succesfully started defrag.exe");
-            else
-                this.listView1.Items.Add("Failed to start defrag.exe");
+            this.listView1.Items.Add("Succesfully started defrag.exe");
         }
 
         private void DiskDefragment_Load(object sender, EventArgs e)

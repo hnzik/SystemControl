@@ -12,8 +12,8 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 {
     struct ProcessItem
     {
-        public string processName, cpuUsage, diskUsage, networkUsage, gpuUsage;
-        public int ramUsage;
+        public string processName, cpuUsage, diskUsage, networkUsage, gpuUsage, PID;
+        public long ramUsage;
     }
     struct IO_COUNTERS
     {
@@ -30,13 +30,23 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
         [DllImport("kernel32.dll")]
         private static extern bool GetProcessIoCounters(IntPtr ProcessHandle, out IO_COUNTERS IoCounters);
 
+        public string getCurrentCpuUsage()
+        {
+            PerformanceCounter cpuCounter;
+            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            cpuCounter.NextValue();
+            System.Threading.Thread.Sleep(600);
+
+            return (int)cpuCounter.NextValue() + "%";
+        }
+
         private string cpuProcessUsageTime(Process p)
         {
             CpuUsage cpuUsage1 = new CpuUsage();
             short usage = 0;
             try
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     short internalUsage = cpuUsage1.GetUsage(Process.GetProcessById(p.Id));
                     if (internalUsage != -1)
@@ -44,12 +54,11 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
                         usage = internalUsage;
                         break;
                     }
-
                 }
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
-                Console.WriteLine(e);
-                Console.WriteLine(p.ProcessName);
+          
             }
             if(usage != 0)
             {
@@ -62,25 +71,9 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             return usage.ToString();
         }
 
-        private int getRamUsage(Process p) {
-            int usage = 0;
-            try
-            {
-                usage = Convert.ToInt32(new PerformanceCounter("Process", "Working Set - Private", p.ProcessName, true).NextValue());
-            } catch(Exception e)
-            {
-
-            }
-            return usage;
-        }
-
-
-
         public ProcessItem getcpuUsage(string procname)
         {
             Process[] processCollection = Process.GetProcesses();
-            List<ProcessItem> processItems = new List<ProcessItem>();
-
             foreach (Process p in processCollection)
             {
                 try
@@ -89,7 +82,6 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
                     {
                         ProcessItem processItem = new ProcessItem();
                         processItem.processName = p.ProcessName;
-                        processItem.ramUsage = getRamUsage(p);
                         processItem.cpuUsage = this.cpuProcessUsageTime(p);
                         return processItem;
                     }
@@ -107,14 +99,13 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
         {
             Process[] processCollection = Process.GetProcesses();
             List<ProcessItem> processItems = new List<ProcessItem>();
-
-            Parallel.ForEach(processCollection, (p) =>{
+            foreach (Process p in processCollection) { 
                 ProcessItem processItem = new ProcessItem();
-                
+                processItem.PID = p.Id.ToString();
                 processItem.processName = p.ProcessName;
-                processItem.ramUsage = getRamUsage(p);
+                processItem.ramUsage = p.PrivateMemorySize64;
                 processItems.Add(processItem);
-            });
+            }
             
             return processItems;
         }

@@ -101,7 +101,7 @@ namespace SystemControl.ComputerPerformace.Performance.Analysis
         {
             get
             {
-                const int minimumElapsedMS = 10;
+                const int minimumElapsedMS = 30;
                 TimeSpan sinceLast = DateTime.Now - _lastRun;
                 return sinceLast.TotalMilliseconds > minimumElapsedMS;
             }

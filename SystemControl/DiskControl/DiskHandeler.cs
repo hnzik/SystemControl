@@ -6,6 +6,7 @@ using System.Linq;
 using System.Management;
 using System.Management.Automation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SystemControl.DiskControl
@@ -59,6 +60,7 @@ namespace SystemControl.DiskControl
                     Arguments = args,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
+                    RedirectStandardInput = true,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     CreateNoWindow = true
                 }
@@ -77,8 +79,12 @@ namespace SystemControl.DiskControl
         }
 
         public bool startDiskDefrag(string disk) {
-            Console.WriteLine(disk);
-            this.defragProcess = startPowerShell(disk+" /V /U");
+            new Task(() => {
+                startPowerShell(disk + " /M");
+            }).Start();
+            System.Threading.Thread.Sleep(300);
+            this.defragProcess = startPowerShell(disk + " /T /V /U");
+
             return this.hasDefragStarted;
         }
 
@@ -89,6 +95,7 @@ namespace SystemControl.DiskControl
 
             if (this.hasDefragStarted)
             {
+                this.defragProcess.StandardInput.WriteLine("d");
                 return this.defragProcess.StandardOutput.ReadLine();
             }
 
