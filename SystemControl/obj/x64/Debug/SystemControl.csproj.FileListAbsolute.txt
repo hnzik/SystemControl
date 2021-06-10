@@ -132,7 +132,6 @@ C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.Co
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Cleaning.ComputerCleaningGui.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Cleaning.SettingsGui.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.ComputerPerformaceGui.resources
-C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.PerformaceSelect.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.DiskControl.DiskControlInfo.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.DiskControl.DiskControlSelect.resources
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.DiskControl.DiskDefragment.resources
@@ -191,5 +190,5 @@ C:\xampp\htdocs\Lazne\SystemControl\SystemControl\bin\x64\Debug\System.Runtime.C
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\bin\x64\Debug\Validation.xml
 C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.csproj.CopyComplete
-C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ListViewItemComparer.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources
+C:\xampp\htdocs\Lazne\SystemControl\SystemControl\obj\x64\Debug\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources

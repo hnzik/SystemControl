@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SystemControl.ComputerPerformace.Performance.Analysis;
 
 namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 {
@@ -35,9 +35,25 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             PerformanceCounter cpuCounter;
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             cpuCounter.NextValue();
-            System.Threading.Thread.Sleep(600);
-
+            System.Threading.Thread.Sleep(200);
             return (int)cpuCounter.NextValue() + "%";
+        }
+
+        public string getTotalRamUsage()
+        {
+            var wmiObject = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
+
+            var memoryValues = wmiObject.Get().Cast<ManagementObject>().Select(mo => new {
+                FreePhysicalMemory = Double.Parse(mo["FreePhysicalMemory"].ToString()),
+                TotalVisibleMemorySize = Double.Parse(mo["TotalVisibleMemorySize"].ToString())
+            }).FirstOrDefault();
+
+            if (memoryValues != null)
+            {
+                int proc = (int)(((memoryValues.TotalVisibleMemorySize - memoryValues.FreePhysicalMemory) / memoryValues.TotalVisibleMemorySize) * 100);
+                return proc.ToString();
+            }
+            return "0";
         }
 
         private string cpuProcessUsageTime(Process p)

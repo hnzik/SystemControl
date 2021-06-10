@@ -111,6 +111,13 @@ namespace SystemControl.ComputerPerformace
         {
             this.Hide();
             ComputerPerformace.Cleaning.ComputerCleaningGui computerCleaningGui = new ComputerPerformace.Cleaning.ComputerCleaningGui();
+            computerCleaningGui.Show(this);
+            Button closeButton = (Button)computerCleaningGui.Controls[2].Controls[0];
+            closeButton.Click += (s, args) =>
+            {
+                this.Show();
+                computerCleaningGui.Dispose();
+            };
         }
 
 

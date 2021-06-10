@@ -178,8 +178,9 @@
     <Compile Include="ComputerPerformace\ComputerPerformaceGui.Designer.cs">
       <DependentUpon>ComputerPerformaceGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComputerPerformace\Performance\ProcessManager\CpuUsage.cs" />
-    <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.cs" />
+    <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ComputerPerformace\Performance\ProcessManager\ProcessManager.Designer.cs">
       <DependentUpon>ProcessManager.cs</DependentUpon>
     </Compile>

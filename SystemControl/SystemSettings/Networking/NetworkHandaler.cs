@@ -19,7 +19,6 @@ namespace SystemControl.SystemSettings.Networking
         public string subnetMaskV6;
         public string defaultGateway;
         public string Ipv6defaultGateway;
-
         public string mac;
         public string dns1;
         public string dns2;
@@ -187,8 +186,25 @@ namespace SystemControl.SystemSettings.Networking
                 return false;
         }
 
+
+        public void enableDHCP(string nicDescription)
+        {
+            using (var networkConfigMng = new ManagementClass("Win32_NetworkAdapterConfiguration"))
+            {
+                using (var networkConfigs = networkConfigMng.GetInstances())
+                {
+                    foreach (var managementObject in networkConfigs.Cast<ManagementObject>().Where(mo => (bool)mo["IPEnabled"] && (string)mo["Description"] == nicDescription))
+                    {
+                        Console.WriteLine("Found");
+                        Console.WriteLine(managementObject.InvokeMethod("EnableDHCP", null));
+                    }
+                }
+            }
+        }
+
         public void setIpForAdapter(string nicDescription, string[] ipAddresses, string subnetMask, string gateway)
         {
+
             using (var networkConfigMng = new ManagementClass("Win32_NetworkAdapterConfiguration"))
             {
                 using (var networkConfigs = networkConfigMng.GetInstances())

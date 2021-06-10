@@ -79,11 +79,8 @@ namespace SystemControl.DiskControl
         }
 
         public bool startDiskDefrag(string disk) {
-            new Task(() => {
-                startPowerShell(disk + " /O /M",false);
-            }).Start();
-            System.Threading.Thread.Sleep(300);
-            this.defragProcess = startPowerShell(disk + " /T /V /U", true);
+            Console.WriteLine(disk);
+            this.defragProcess = startPowerShell(disk + " /O /V /U", true);
             return this.hasDefragStarted;
         }
 

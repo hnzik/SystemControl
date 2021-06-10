@@ -102,6 +102,9 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
                     {
                         this.discardExitedProcess();
                         this.addNewProcess();
+                        this.listView1.Columns[2].Text = "CPU "+this.handeler.getCurrentCpuUsage();
+                        this.listView1.Columns[3].Text = "RAM " + this.handeler.getTotalRamUsage() + "%";
+
                         foreach (ListViewItem item in this.listView1.Items)
                         {
                             foreach (ProcessItem pItem in this.processItems)
@@ -112,7 +115,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
 
                                     if (process.PID == pItem.PID)
                                     {
-
+                                        
                                         item.BackColor = Color.White;
                                         item.SubItems[3].Text = converBytesToString(pItem.ramUsage);
                                         if (pItem.cpuUsage != null)

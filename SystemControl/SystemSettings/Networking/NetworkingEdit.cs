@@ -50,9 +50,10 @@ namespace SystemControl.SystemSettings.Networking
         //Verify IP configuration and apply changes
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            if (handaler.verifyIpAdress(metroTextBox1.Text) && handaler.verifyIpAdress(metroTextBox2.Text) && handaler.verifyIpAdress(metroTextBox3.Text) && handaler.verifyIpAdress(metroTextBox4.Text) && handaler.verifyIpAdress(metroTextBox5.Text))
+            if (handaler.verifyIpAdress(metroTextBox1.Text) && handaler.verifyIpAdress(metroTextBox2.Text) && handaler.verifyIpAdress(metroTextBox3.Text) && handaler.verifyIpAdress(metroTextBox4.Text))
             {
                 handaler.setIpForAdapter(adapterDescription, new string[] { metroTextBox1.Text }, metroTextBox2.Text, metroTextBox3.Text);
+                Console.WriteLine("Passed");
                 fillNetworkOptions(adapterNameSave);
             }
         }
@@ -60,6 +61,11 @@ namespace SystemControl.SystemSettings.Networking
         private void metroCheckBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroCheckBox1_Click_1(object sender, EventArgs e)
+        {
+            handaler.enableDHCP(adapterNameSave);
         }
     }
 }
