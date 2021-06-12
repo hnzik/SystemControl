@@ -14,29 +14,17 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
     {
         public string processName, cpuUsage, diskUsage, networkUsage, gpuUsage, PID;
         public long ramUsage;
-    }
-    struct IO_COUNTERS
-    {
-        public ulong ReadOperationCount;
-        public ulong WriteOperationCount;
-        public ulong OtherOperationCount;
-        public ulong ReadTransferCount;
-        public ulong WriteTransferCount;
-        public ulong OtherTransferCount;
-    }
+        public double oldCpu;
+        public DateTime lastMessure;
 
+    }
     class ProcessManagerHandeler
     {
-        [DllImport("kernel32.dll")]
-        private static extern bool GetProcessIoCounters(IntPtr ProcessHandle, out IO_COUNTERS IoCounters);
-
+        private PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         public string getCurrentCpuUsage()
         {
-            PerformanceCounter cpuCounter;
-            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            cpuCounter.NextValue();
-            System.Threading.Thread.Sleep(200);
-            return (int)cpuCounter.NextValue() + "%";
+            int usage = (int)cpuCounter.NextValue();
+            return "- " + usage.ToString()+"%"; 
         }
 
         public string getTotalRamUsage()
@@ -56,53 +44,26 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             return "0";
         }
 
-        private string cpuProcessUsageTime(Process p)
-        {
+         public string cpuProcessUsageTime(string p, ref ProcessItem old)
+         {
             int usage = 0;
             try
             {
-                var counter = new PerformanceCounter("Process", "% Processor Time", p.ProcessName);
-                counter.NextValue();
-                Thread.Sleep(10);
-                usage = (int)(counter.NextValue()/Environment.ProcessorCount);
+                Process test = Process.GetProcessById(Int32.Parse(p));
+                test.Refresh();
+                double cpuUsage = (test.TotalProcessorTime.TotalMilliseconds - old.oldCpu) / DateTime.Now.Subtract(old.lastMessure).TotalMilliseconds / Convert.ToDouble(Environment.ProcessorCount);
+                old.lastMessure = DateTime.Now;
+                old.oldCpu = test.TotalProcessorTime.TotalMilliseconds;
+                usage = (int)(cpuUsage * 100);
             }
             catch (Exception e)
             {
           
             }
-            if(usage != 0)
-            {
-                Console.WriteLine(p.ProcessName);
-                Console.WriteLine(usage);
-
-
-            }
-
             return usage.ToString();
-        }
+         }
 
-        public ProcessItem getcpuUsage(string procname)
-        {
-            Process[] processCollection = Process.GetProcesses();
-            foreach (Process p in processCollection)
-            {
-                try
-                {
-                    if (procname == p.ProcessName)
-                    {
-                        ProcessItem processItem = new ProcessItem();
-                        processItem.processName = p.ProcessName;
-                        processItem.cpuUsage = this.cpuProcessUsageTime(p);
-                        return processItem;
-                    }
-
-                } catch (Exception ex)
-                {
-
-                }
-            }
-            return new ProcessItem();
-        }
+    
 
 
         public List<ProcessItem> getProcessList()
@@ -114,6 +75,9 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
                     continue;
                 ProcessItem processItem = new ProcessItem();
                 processItem.PID = p.Id.ToString();
+                processItem.oldCpu = p.TotalProcessorTime.TotalMilliseconds;
+                processItem.lastMessure = DateTime.Now;
+
                 processItem.processName = p.ProcessName;
                 processItem.ramUsage = p.PrivateMemorySize64;
                 processItems.Add(processItem);

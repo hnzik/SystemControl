@@ -13,7 +13,7 @@ namespace SystemControl.DiskControl
 {
     struct HardDriveInfo
     {
-        public string driveName, driveType, volumeLabel, driveFormat, totalFreeSpace, totalSize,serialNumber,model,InterfaceType;
+        public string driveName, driveType, volumeLabel, driveFormat, totalFreeSpace, totalSize, serialNumber, model, InterfaceType;
     }
     class DiskHandeler
     {
@@ -23,21 +23,14 @@ namespace SystemControl.DiskControl
         private bool hasDefragStarted;
 
 
-        public void getWin32DiskDriveData(ref HardDriveInfo info,int cnt) {
+        public void getWin32DiskDriveData(ref HardDriveInfo info, int cnt)
+        {
             ManagementObjectSearcher moSearcher = new
             ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            int count = 0;
-            foreach (ManagementObject wmi_HD in moSearcher.Get())
-            {
-                if(count == cnt)
-                {
-                    info.model = wmi_HD["Model"].ToString();
-                    info.InterfaceType = wmi_HD["InterfaceType"].ToString();
-                    info.serialNumber = wmi_HD["SerialNumber"].ToString();
-                    return;
-                }
-                count++;
-            }
+            ManagementObject wmi_HD = moSearcher.Get().OfType<ManagementObject>().ElementAt(cnt);
+            info.model = wmi_HD["Model"].ToString();
+            info.InterfaceType = wmi_HD["InterfaceType"].ToString();
+            info.serialNumber = wmi_HD["SerialNumber"].ToString();
         }
 
         public HardDriveInfo getHardDriveInfoSpecific(string label)
@@ -50,7 +43,7 @@ namespace SystemControl.DiskControl
             return new HardDriveInfo();
         }
 
-        private Process startPowerShell(string args,bool redirect)
+        private Process startPowerShell(string args, bool redirect)
         {
             Process proc = new Process
             {
@@ -73,12 +66,13 @@ namespace SystemControl.DiskControl
         {
             if (this.defragProcess != null)
             {
-                if(!this.defragProcess.HasExited)
+                if (!this.defragProcess.HasExited)
                     this.defragProcess.Kill();
             }
         }
 
-        public bool startDiskDefrag(string disk) {
+        public bool startDiskDefrag(string disk)
+        {
             Console.WriteLine(disk);
             this.defragProcess = startPowerShell(disk + " /O /V /U", true);
             return this.hasDefragStarted;
@@ -114,9 +108,8 @@ namespace SystemControl.DiskControl
                     hardDriveInfo.totalFreeSpace = d.TotalFreeSpace.ToString();
                     hardDriveInfo.totalSize = d.TotalSize.ToString();
                     getWin32DiskDriveData(ref hardDriveInfo, count);
-                    count++;
                     driveInfo.Add(hardDriveInfo);
-               }
+                }
             }
             return this.driveInfo;
         }

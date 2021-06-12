@@ -20,7 +20,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
         private IComparer comparer = null;
         Thread updateThread;
         ProcessManagerHandeler handeler;
-        ProcessItem[] processItems;
+        List<ProcessItem> processItems;
 
         public ProcessManager()
         {
@@ -80,7 +80,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             foreach (ListViewItem item in this.listView1.Items)
             {
                 ProcessItem process   = (ProcessItem)item.Tag;
-                if (!processItems.Contains(process))
+                if (processItems.FindIndex(p => p.PID == process.PID) == -1)
                     this.listView1.Items.Remove(item);
             }
         }
@@ -91,11 +91,13 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
             {
                 while (true)
                 {
-                    processItems = handeler.getProcessList().ToArray();
+                    processItems = handeler.getProcessList();
           
-                    for (int i= 0; i<this.processItems.Length; i++)
+                    for (int i= 0; i<this.processItems.Count; i++)
                     {
-                        this.processItems[i].cpuUsage = this.handeler.getcpuUsage(this.processItems[i].processName).cpuUsage;
+                        ProcessItem tempProcessItem = this.processItems[i];
+                        tempProcessItem.cpuUsage = this.handeler.cpuProcessUsageTime(this.processItems[i].PID, ref tempProcessItem);
+                        processItems[i] = tempProcessItem;
                     }
 
                     listView1.Invoke((MethodInvoker)delegate ()
@@ -147,7 +149,7 @@ namespace SystemControl.ComputerPerformace.Performance.ProcessManager
         }
 
         private void fillListView() {
-            processItems = handeler.getProcessList().ToArray();
+            processItems = handeler.getProcessList();
             foreach (ProcessItem p in processItems)
             {
                 ListViewItem item = new ListViewItem(new string[] { p.processName, p.PID ,p.cpuUsage, converBytesToString(p.ramUsage), "0,5 MB/s", "0.4 Mbps", "2%" });

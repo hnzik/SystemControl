@@ -36,8 +36,6 @@ C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\Syst
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.Cleaning.ComputerCleaningGui.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.Cleaning.SettingsGui.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.ComputerPerformaceGui.resources
-C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.Performance.Analysis.AnalysisCPU.resources
-C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.Performance.PerformaceSelect.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.ComputerPerformace.Performance.ProcessManager.ProcessManager.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.DiskControl.DiskControlInfo.resources
 C:\Users\hnzik\Documents\GitHub\SystemControl\SystemControl\obj\x64\Release\SystemControl.DiskControl.DiskControlSelect.resources

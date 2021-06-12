@@ -52,18 +52,16 @@ namespace SystemControl.DiskControl
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(18, 78);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 7;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(26, 146);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel1.Location = new System.Drawing.Point(17, 95);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(44, 19);
             this.metroLabel1.TabIndex = 8;
@@ -73,8 +71,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(26, 208);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel2.Location = new System.Drawing.Point(17, 140);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(48, 19);
             this.metroLabel2.TabIndex = 9;
@@ -84,8 +81,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(26, 266);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel3.Location = new System.Drawing.Point(17, 185);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(128, 19);
             this.metroLabel3.TabIndex = 10;
@@ -96,8 +92,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(26, 394);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel4.Location = new System.Drawing.Point(17, 275);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(96, 19);
             this.metroLabel4.TabIndex = 11;
@@ -107,8 +102,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(30, 505);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel6.Location = new System.Drawing.Point(20, 365);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(76, 19);
             this.metroLabel6.TabIndex = 13;
@@ -118,8 +112,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(26, 328);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel7.Location = new System.Drawing.Point(17, 230);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(96, 19);
             this.metroLabel7.TabIndex = 14;
@@ -129,8 +122,7 @@ namespace SystemControl.DiskControl
             // 
             this.metroLabel8.AutoSize = true;
             this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel8.Location = new System.Drawing.Point(26, 452);
-            this.metroLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel8.Location = new System.Drawing.Point(17, 320);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(79, 19);
             this.metroLabel8.TabIndex = 15;
@@ -138,20 +130,18 @@ namespace SystemControl.DiskControl
             // 
             // metroTextBox1
             // 
-            this.metroTextBox1.Location = new System.Drawing.Point(226, 146);
-            this.metroTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox1.Location = new System.Drawing.Point(151, 95);
             this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox1.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox1.TabIndex = 16;
             this.metroTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.metroTextBox1_KeyDown);
             this.metroTextBox1.Leave += new System.EventHandler(this.metroTextBox1_Leave);
             // 
             // metroTextBox2
             // 
-            this.metroTextBox2.Location = new System.Drawing.Point(226, 208);
-            this.metroTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox2.Location = new System.Drawing.Point(151, 140);
             this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox2.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox2.TabIndex = 17;
             this.metroTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.metroTextBox1_KeyDown);
             this.metroTextBox2.Leave += new System.EventHandler(this.metroTextBox1_Leave);
@@ -159,46 +149,41 @@ namespace SystemControl.DiskControl
             // metroTextBox3
             // 
             this.metroTextBox3.Enabled = false;
-            this.metroTextBox3.Location = new System.Drawing.Point(226, 266);
-            this.metroTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox3.Location = new System.Drawing.Point(151, 185);
             this.metroTextBox3.Name = "metroTextBox3";
-            this.metroTextBox3.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox3.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox3.TabIndex = 23;
             // 
             // metroTextBox4
             // 
             this.metroTextBox4.Enabled = false;
-            this.metroTextBox4.Location = new System.Drawing.Point(226, 328);
-            this.metroTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox4.Location = new System.Drawing.Point(151, 230);
             this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox4.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox4.TabIndex = 24;
             // 
             // metroTextBox5
             // 
             this.metroTextBox5.Enabled = false;
-            this.metroTextBox5.Location = new System.Drawing.Point(226, 388);
-            this.metroTextBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox5.Location = new System.Drawing.Point(151, 275);
             this.metroTextBox5.Name = "metroTextBox5";
-            this.metroTextBox5.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox5.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox5.TabIndex = 25;
             // 
             // metroTextBox6
             // 
             this.metroTextBox6.Enabled = false;
-            this.metroTextBox6.Location = new System.Drawing.Point(226, 446);
-            this.metroTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox6.Location = new System.Drawing.Point(151, 320);
             this.metroTextBox6.Name = "metroTextBox6";
-            this.metroTextBox6.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox6.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox6.TabIndex = 26;
             // 
             // metroTextBox7
             // 
             this.metroTextBox7.Enabled = false;
-            this.metroTextBox7.Location = new System.Drawing.Point(226, 505);
-            this.metroTextBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroTextBox7.Location = new System.Drawing.Point(151, 365);
             this.metroTextBox7.Name = "metroTextBox7";
-            this.metroTextBox7.Size = new System.Drawing.Size(280, 35);
+            this.metroTextBox7.Size = new System.Drawing.Size(187, 23);
             this.metroTextBox7.TabIndex = 27;
             // 
             // metroLabel5
@@ -206,15 +191,16 @@ namespace SystemControl.DiskControl
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel5.Location = new System.Drawing.Point(23, 39);
+            this.metroLabel5.Location = new System.Drawing.Point(15, 25);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(77, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(114, 25);
             this.metroLabel5.TabIndex = 28;
             this.metroLabel5.Text = "Disk control";
             // 
             // DiskControlInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.metroLabel5);
@@ -234,9 +220,8 @@ namespace SystemControl.DiskControl
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.label2);
             this.Enabled = false;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DiskControlInfo";
-            this.Size = new System.Drawing.Size(898, 697);
+            this.Size = new System.Drawing.Size(599, 453);
             this.Load += new System.EventHandler(this.DiskControlInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

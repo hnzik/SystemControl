@@ -95,7 +95,6 @@ namespace SystemControl.FileBrowser
                 this.fileList = new DirectoryInfo(path);
                 FileInfo[] tempFileInfo = fileList.GetFiles();
                 var imageList1 = imgList;
-                var partitioner = Partitioner.Create(tempFileInfo);
 
                 Parallel.ForEach(tempFileInfo, (file) =>
                 {
