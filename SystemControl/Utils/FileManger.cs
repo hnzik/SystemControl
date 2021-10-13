@@ -165,8 +165,6 @@ namespace SystemControl.Utils
             }
         }
 
-
-
         public void fileDelete(string what, bool shouldWeDeleteDirecotryFolder = true)
         {
             if (File.Exists(what))

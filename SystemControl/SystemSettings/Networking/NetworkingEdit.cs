@@ -64,8 +64,8 @@ namespace SystemControl.SystemSettings.Networking
         }
 
         private void metroCheckBox1_Click_1(object sender, EventArgs e)
-        {
-            handaler.enableDHCP(adapterNameSave);
+        { 
+            handaler.enableDHCP(adapterDescription);
         }
     }
 }
